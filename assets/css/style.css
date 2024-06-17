@@ -1,0 +1,17 @@
+.mr-1{
+    margin-right: 1%;
+}
+
+.input-error{
+  border-color: red;
+  border-width: medium;  
+}
+
+.input-success{
+  border-color: rgb(114, 221, 114);
+  border-width: medium;  
+}
+
+.margin-top-2{
+    margin-top: 2%;
+}
