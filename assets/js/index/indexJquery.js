@@ -1,6 +1,10 @@
 $(document).ready(function () {
 
+  //variables globales
   let isValit = true;
+  let ValueName = "";
+  let ValuePhone = "";
+  let ValueContactType = "";
 
 
   //events
@@ -13,6 +17,29 @@ $(document).ready(function () {
 
   //Funtions
 
+  function generateHtmlContact()
+  {
+    const htmlContact = 
+    `
+    <div class="col-md-4">
+          <div class="card">
+            <div class="card-header bg-success text-white">
+              <h5 class="card-title">Contacto - ${ValueContactType}</h5>
+            </div>
+
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Nombre: ${valueName}</li>
+                <li class="list-group-item">Telefono: ${valuePhone}</li>
+              </ul>
+              <button class="btn btn-danger float-end">Eliminar</button>
+            </div>
+          </div>
+        </div>
+    `;
+    $("#contact-container").append(htmlContact);
+  }
+
   function clear()
   {
     $("#name").val("").removeClass("input-error").removeClass("input-success").focus();
@@ -22,11 +49,8 @@ $(document).ready(function () {
 
   function validation()
   {
-    const valueName = $("#name").val();
-    const valuePhone = $("#phone").val();
-    const valueContactType = $("#contact-type").val();
 
-    if(valueName == "" || valueName == null || valueName == undefined)
+    if(ValueName == "" || ValueName == null || ValueName == undefined)
     {
       isValit = false;
       $("#name").addClass("input-error");
@@ -40,7 +64,7 @@ $(document).ready(function () {
     }
 
 
-    if(valuePhone == "" || valuePhone == null || valuePhone == undefined)
+    if(ValuePhone == "" || ValuePhone == null || ValuePhone == undefined)
       {
         isValit = false;
         $("#phone").addClass("input-error");
@@ -55,7 +79,7 @@ $(document).ready(function () {
       }
 
 
-      if(valueContactType == "" || valueContactType == null || valueContactType == undefined)
+      if(ValueContactType == "" || ValueContactType == null || ValueContactType == undefined)
         {
           isValit = false;
           $("#contact-type").addClass("input-error");
@@ -74,15 +98,17 @@ $(document).ready(function () {
 
   function createContactType()
   {
+    ValueName = $("#name").val();
+    ValuePhone = $("#phone").val();
+    ValueContactType = $("#contact-type").val();
+
     if(validation())
     {
-      alert("Datos Ok");
-      console.log("valid", isValit );
+      generateHtmlContact();
+      clear();
     }else
     {
       alert("Por favor completar todo el formulario");
-      console.log("invalid", isValit);
-      console.log(valueName);
       
     }
   }

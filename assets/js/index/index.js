@@ -17,7 +17,7 @@ function CreateContactType() {
     divCard.setAttribute("class", "card");
 
     const divCardHeader = document.createElement("div");
-    divCardHeader.setAttribute("class", "card-header bg-success text-white");
+    divCardHeader.setAttribute("class", "card-header text-white");
 
     const h5Title = document.createElement("h5");
     h5Title.setAttribute("class", "card-title");
