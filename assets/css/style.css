@@ -5,11 +5,13 @@
 .input-error{
   border-color: red;
   border-width: medium;  
+  color: red;
 }
 
 .input-success{
   border-color: rgb(114, 221, 114);
-  border-width: medium;  
+  border-width: medium;
+  color: rgb(114, 221, 114);  
 }
 
 .margin-top-2{
